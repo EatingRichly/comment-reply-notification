@@ -1,10 +1,10 @@
-=== Plugin Name ===
+﻿=== Plugin Name ===
 Contributors: denishua
-Tags: Comment
+Tags: Comment, reply, email, notification
 Donate link: http://fairyfish.net/donate/
 Requires at least: 2.7
 Tested up to: 2.7
-Stable tag: 0.1
+Stable tag: 1.0
 
 When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. 
 
@@ -14,7 +14,8 @@ When a reply is made to a comment the user has left on the blog, an e-mail shall
 <p>When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. </p>
 
 == Installation ==
-
-1. Upload the folder comment-reply-notification to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. That's all.
+<ol>
+<li>Upload the folder comment-reply-notification to the `/wp-content/plugins/` directory</li>
+<li>Activate the plugin through the 'Plugins' menu in WordPress</li>
+<li>That's all.</li>
+</ol>
