@@ -3,7 +3,7 @@
 /* 
 Plugin Name: Comment Reply Notification
 Plugin URI: http://fairyfish.net/2008/11/03/comment-reply-notification/
-Version: 1.0.0
+Version: 1.1
 Author: denishua
 Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. 评论回复通知插件, 当评论被回复时会email通知评论的作者.
 Author URI: http://fairyfish.net/
@@ -27,7 +27,6 @@ class comment_reply_notification{
 	var $options = array();
 	var $options_keys = array('mail_notify', 'mail_subject', 'mail_message', 'clean_option', 'dn_hide_note');
 	var $db_options = 'commentreplynotification';
-	//var $donate_link = 'http://blog.2i2j.com/redir/donate-wpthreadcomment';
 
 	function comment_reply_notification(){
 		$this->initoption();
@@ -43,7 +42,7 @@ class comment_reply_notification{
 		}elseif($key === 'mail_subject'){
 			return __('Your comment at [[blogname]] has a new reply','comment-reply-notification');
 		}elseif($key === 'mail_message'){
-			return __("<p><strong>[blogname]</strong>: Your comment on the post <strong>[postname]</strong> has a new reply</p>\n<p>Here is your original comment:<br />\n[pc_content]</p>\n<p>Here is the new reply:<br />\n[cc_content]</p>\n<p>You can see more information for the comment on this post here:<br />\n<a href=\"[commentlink]\">[commentlink]</a></p>\n<p><strong>Thank you for your commenting on <a href=\"[blogurl]\">[blogname]</a></strong></p>\n<p><strong>This email was sent automatically. Please don't reply to this email.</strong></p>",'comment-reply-notification');
+			return __("<p><strong>[blogname]</strong>: Your comment on the post <strong>[postname]</strong> has a new reply</p>\n<p>Here is your original comment:<br />\n[pc_content]</p>\n<p>Here is the new reply:<br />\n[cc_content]</p>\n<p>You can see more information for the comment on this post here:<br />\n<a href=\"[commentlink]\">[commentlink]</a></p>\n<p><strong>Thank you for your commenting on <a href=\"[blogurl]\">[blogname]</a></strong> -- Powered by <a href=\"http://fairyfish.net/2008/11/03/comment-reply-notification/\">Comment Reply Notification</a></p>\n<p><strong>This email was sent automatically. Please don't reply to this email.</strong></p>",'comment-reply-notification');
 		}elseif($key === 'clean_option'){
 			return 'no';
 		}elseif($key === 'dn_hide_note'){
@@ -332,7 +331,7 @@ class comment_reply_notification{
 			<label><?php _e('Delete options after deactivate:','comment-reply-notification'); ?></label>
 			<input type="checkbox" name="clean_option" id="clean_option" value="yes" <?php if ($this->options['clean_option'] === 'yes') { ?> checked="checked"<?php } ?>/>
 			<br />
-			<small><?php _e('check box if you want to delete all of options of wp thread comment after deactivate this plugin','comment-reply-notification'); ?></small>
+			<small><?php _e('check box if you want to delete all of options of Comment Reply Notification after deactivate this plugin','comment-reply-notification'); ?></small>
 		</p>
 		<div class="clearing"></div>
 		<p class="submit">
