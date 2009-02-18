@@ -3,7 +3,7 @@
 /* 
 Plugin Name: Comment Reply Notification
 Plugin URI: http://fairyfish.net/2008/11/03/comment-reply-notification/
-Version: 1.1
+Version: 1.2
 Author: denishua
 Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. 评论回复通知插件, 当评论被回复时会email通知评论的作者.
 Author URI: http://fairyfish.net/
@@ -13,8 +13,8 @@ Donate link: http://fairyfish.net/donate/
 /*
 ChangeLog:
 
-2008-12-19
-			1. 第一版形成	
+2008-12-19 version 1.0 inition version
+2009-02-18 Version 1.2 fix the problem with WP 2.7 paged comments. 
 
 
 */
@@ -219,9 +219,11 @@ class comment_reply_notification{
 		$mail_message = str_replace('[blogurl]', get_option('home'), $mail_message);
 		$mail_message = str_replace('[postname]', $post->post_title, $mail_message);
 
-		$permalink = get_permalink($comment_post_id);
+		//$permalink = get_permalink($comment_post_id);
+		$permalink =  get_comment_link($parent_id);
 
-		$mail_message = str_replace('[commentlink]', $permalink . "#comment-{$parent_id}", $mail_message);
+		//$mail_message = str_replace('[commentlink]', $permalink . "#comment-{$parent_id}", $mail_message);
+		$mail_message = str_replace('[commentlink]', $permalink, $mail_message);
 
 		$wp_email = 'no-reply@' . preg_replace('#^www\.#', '', strtolower($_SERVER['SERVER_NAME']));
 		$from = "From: \"".get_option('blogname')."\" <$wp_email>";
@@ -340,6 +342,26 @@ class comment_reply_notification{
 		</p>
 		</fieldset>
 	</form>
+	
+	<div>
+		<div style="float:left; font-size:16px; height:30px; line-height:30px;"> Do you like this Plugin?	 Consider to </div>
+		<div style="float:left; padding:0 0 0 4px">
+		 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		  <input type="hidden" name="cmd" value="_donations">
+		  <input type="hidden" name="business" value="honghua.deng@gmail.com">
+		  <input type="hidden" name="item_name" value="Donate to Comment Reply Notification">
+		  <input type="hidden" name="no_shipping" value="0">
+		  <input type="hidden" name="no_note" value="1">
+		  <input type="hidden" name="currency_code" value="USD">
+		  <input type="hidden" name="tax" value="0">
+		  <input type="hidden" name="lc" value="US">
+		  <input type="hidden" name="bn" value="PP-DonationsBF">
+		  <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+		  <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"><br />
+		  </form>
+		</div>
+	</div>
+  </div>
 </div>
 <?php
 	}
@@ -347,5 +369,4 @@ class comment_reply_notification{
 endif;
 
 $new_comment_reply_notification = new comment_reply_notification();
-
 ?>
