@@ -1,9 +1,8 @@
 <?php
-
 /* 
 Plugin Name: Comment Reply Notification
 Plugin URI: http://fairyfish.net/2008/11/03/comment-reply-notification/
-Version: 1.2
+Version: 1.3
 Author: denishua
 Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. 评论回复通知插件, 当评论被回复时会email通知评论的作者.
 Author URI: http://fairyfish.net/
@@ -12,11 +11,8 @@ Donate link: http://fairyfish.net/donate/
 
 /*
 ChangeLog:
-
 2008-12-19 version 1.0 inition version
 2009-02-18 Version 1.2 fix the problem with WP 2.7 paged comments. 
-
-
 */
 
 if(!class_exists('comment_reply_notification')):
@@ -84,7 +80,6 @@ class comment_reply_notification{
 
 	function inithook(){
 		add_action('init', array(&$this, 'init_textdomain'));
-
 		add_action('comment_post', array(&$this,'add_mail_reply'),9998);
 		add_action('wp_set_comment_status', array(&$this,'status_change'),9999,2);
 		add_action('comment_post', array(&$this,'email'),9999);
@@ -118,18 +113,13 @@ class comment_reply_notification{
 	}
 	
 	function email($id){
-
-		
-
 		if((int) mysql_escape_string($_POST['comment_parent']) === 0 || (int) mysql_escape_string($_POST['comment_post_ID']) === 0){
 			return $id;
 		}
 		if($this->options['mail_notify'] != 'none'){
 			$this->mailer($id,mysql_escape_string($_POST['comment_parent']),mysql_escape_string($_POST['comment_post_ID']));
 		}
-
 		return $id;
-
 	}
 	
 	function add_mail_reply($id){
@@ -236,7 +226,7 @@ class comment_reply_notification{
 		$mail_subject = apply_filters('comment_notification_subject', $mail_subject, $id);
 		$mail_headers = apply_filters('comment_notification_headers', $mail_headers, $id);
 
-		@wp_mail($parent_email, $mail_subject, $mail_message, $mail_headers);
+		wp_mail($parent_email, $mail_subject, $mail_message, $mail_headers);
 		unset($mail_subject,$parent_email,$mail_message, $mail_headers);
 		
 		return true;
@@ -346,19 +336,12 @@ class comment_reply_notification{
 	<div>
 		<div style="float:left; font-size:16px; height:30px; line-height:30px;"> Do you like this Plugin?	 Consider to </div>
 		<div style="float:left; padding:0 0 0 4px">
-		 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-		  <input type="hidden" name="cmd" value="_donations">
-		  <input type="hidden" name="business" value="honghua.deng@gmail.com">
-		  <input type="hidden" name="item_name" value="Donate to Comment Reply Notification">
-		  <input type="hidden" name="no_shipping" value="0">
-		  <input type="hidden" name="no_note" value="1">
-		  <input type="hidden" name="currency_code" value="USD">
-		  <input type="hidden" name="tax" value="0">
-		  <input type="hidden" name="lc" value="US">
-		  <input type="hidden" name="bn" value="PP-DonationsBF">
-		  <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-		  <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"><br />
-		  </form>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="8490579">
+			<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+			<img alt="" border="0" src="https://www.paypal.com/zh_XC/i/scr/pixel.gif" width="1" height="1">
+		</form>
 		</div>
 	</div>
   </div>
