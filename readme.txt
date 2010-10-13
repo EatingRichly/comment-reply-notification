@@ -13,7 +13,7 @@ When a reply is made to a comment the user has left on the blog, an e-mail shall
 
 <p>Detail information: http://wordpress.org/extend/plugins/comment-reply-notification/</p>
 
-<p>中文介绍：http://fairyfish.net/2008/11/03/comment-reply-notification/</p>
+<p>中文介绍： http://fairyfish.net/2008/11/03/comment-reply-notification/</p>
 
 == Installation ==
 <ol>
