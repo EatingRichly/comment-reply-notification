@@ -6,10 +6,14 @@ Requires at least: 2.7
 Tested up to: 3.0.1
 Stable tag: 1.4
 
-When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. 
+When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. 
 
 == Description ==
 <p>When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. </p>
+
+<p>Detail information: http://wordpress.org/extend/plugins/comment-reply-notification/</p>
+
+<p>中文介绍：http://fairyfish.net/2008/11/03/comment-reply-notification/</p>
 
 == Installation ==
 <ol>
