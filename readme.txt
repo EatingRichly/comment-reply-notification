@@ -19,4 +19,8 @@ When a reply is made to a comment the user has left on the blog, an e-mail shall
 </ol>
 
 == Changelog ==
-1.4.tk (by thomas) : the e-mails are now sent even when the reply is posted from dashboard
+1.4 2010-10-13 tk (by thomas) : the e-mails are now sent even when the reply is posted from dashboard
+
+1.2 2009-02-18 fix the problem with WP 2.7 paged comments. 
+
+1.0 2008-12-19 inition version

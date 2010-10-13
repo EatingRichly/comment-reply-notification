@@ -2,17 +2,11 @@
 /* 
 Plugin Name: Comment Reply Notification
 Plugin URI: http://theme10.com/comment-reply-notification/
-Version: 1.3
+Version: 1.4
 Author: denishua
 Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. 评论回复通知插件, 当评论被回复时会email通知评论的作者.
 Author URI: http://fairyfish.net/
 Donate link: http://fairyfish.net/donate/
-*/
-
-/*
-ChangeLog:
-2008-12-19 version 1.0 inition version
-2009-02-18 Version 1.2 fix the problem with WP 2.7 paged comments. 
 */
 
 if(!class_exists('comment_reply_notification')):
