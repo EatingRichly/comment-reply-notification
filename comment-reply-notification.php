@@ -2,7 +2,7 @@
 /* 
 Plugin Name: Comment Reply Notification
 Plugin URI: https://github.com/wormeyman/comment-reply-notification
-Version: 1.5.2
+Version: 1.5.3
 Author: Eric J.
 Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired.
 Author URI: https://twitter.com/wormeyman/
@@ -297,13 +297,13 @@ class comment_reply_notification{
 ?>
 
 <div class="wrap">
-    <style type="text/css">
+    <style scoped="true" type="text/css">
         div.clearing{border-top:1px solid #2580B2 !important;clear:both;}
     </style>
 
     <h2>Comment Reply Notification</h2>
     <form method="post" action="">
-        <fieldset name="wp_basic_options"  class="options">
+        <fieldset name="wp_basic_options" class="options">
         <p>
             <strong><?php _e('Email notify the parent commenter when his comment was replied','comment-reply-notification'); ?></strong>
             <br /><br />
@@ -319,31 +319,31 @@ class comment_reply_notification{
             <br />
         </p>
         <div class="clearing"></div>
-        <p>
+        <div>
             <strong><?php _e('Edit the subject of notification email','comment-reply-notification'); ?></strong>
             <br /><br />
             <input type="text" name="mail_subject" id="mail_subject" value="<?php echo $this->options['mail_subject']; ?>" size="80" />
             <br />
             <p><?php _e('Use TEXT only. As a easier way, you may use the following tags: <strong>[blogname]</strong> for blog name and <strong>[postname]</strong> for comment post name','comment-reply-notification'); ?></p>
             <br />
-        </p>
+        </div>
         <div class="clearing"></div>
-        <p>
+        <div>
             <strong><?php _e('Edit Notification Message','comment-reply-notification'); ?></strong>
             <br /><br />
             <textarea style="font-size: 90%" name="mail_message" id="mail_message" cols="100%" rows="10" ><?php echo $this->options['mail_message']; ?></textarea>
             <br />
             <p><?php _e('Use HTML only. As a easier way, you may use the following tags: <strong>[pc_author]</strong> for parent comment author, <strong>[pc_date]</strong> for parent comment date, <strong>[pc_content]</strong> for parent comment content, <strong>[cc_author]</strong> for child comment author, <strong>[cc_date]</strong> for child comment date, <strong>[cc_url]</strong> for child comment author url, <strong>[cc_content]</strong> for child comment content, <strong>[commentlink]</strong> for parent comment link, <strong>[blogname]</strong> for blog name, <strong>[blogurl]</strong> for blog url and <strong>[postname]</strong> for post name.','comment-reply-notification'); ?></p>
-        </p>
+        </div>
         <div class="clearing"></div>
-        <p>
+        <div>
             <strong><?php _e('Configuration action of deactivate','comment-reply-notification'); ?></strong>
             <br /><br />
             <label><?php _e('Delete options after deactivate:','comment-reply-notification'); ?></label>
             <input type="checkbox" name="clean_option" id="clean_option" value="yes" <?php if ($this->options['clean_option'] === 'yes') { ?> checked="checked"<?php } ?>/>
             <br />
             <p><?php _e('check box if you want to delete all of options of Comment Reply Notification after deactivate this plugin','comment-reply-notification'); ?></p>
-        </p>
+        </div>
         <div class="clearing"></div>
         <p class="submit">
             <input type="submit" class="button-primary" name="updateoptions" value="<?php _e('Update Options','comment-reply-notification'); ?> &raquo;" />
