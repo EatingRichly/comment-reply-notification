@@ -364,7 +364,7 @@ $new_comment_reply_notification = new comment_reply_notification();
  *  Add settings link on plugin page
  */
 function crn_plugin_settings_link($links) { 
-  $settings_link = '<a href="options-general.php?page=comment-reply-notification-master/comment-reply-notification.php">Settings</a>'; 
+  $settings_link = '<a href="options-general.php?page=comment-reply-notification/comment-reply-notification.php">Settings</a>'; 
   array_unshift($links, $settings_link); 
   return $links; 
 }
