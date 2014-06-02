@@ -352,7 +352,7 @@ class comment_reply_notification{
 		</fieldset>
 	</form>
 	
-  </div>
+</div>
 
 <?php
         $new_comment_reply_notification = new comment_reply_notification();
