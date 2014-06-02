@@ -324,7 +324,7 @@ class comment_reply_notification{
             <br /><br />
             <input type="text" name="mail_subject" id="mail_subject" value="<?php echo $this->options['mail_subject']; ?>" size="80" />
             <br />
-            <small><?php _e('Use TEXT only. As a easier way, you may use the following tags: <strong>[blogname]</strong> for blog name and <strong>[postname]</strong> for comment post name','comment-reply-notification'); ?></small>
+            <p><?php _e('Use TEXT only. As a easier way, you may use the following tags: <strong>[blogname]</strong> for blog name and <strong>[postname]</strong> for comment post name','comment-reply-notification'); ?></p>
             <br />
         </p>
         <div class="clearing"></div>
@@ -333,7 +333,7 @@ class comment_reply_notification{
             <br /><br />
             <textarea style="font-size: 90%" name="mail_message" id="mail_message" cols="100%" rows="10" ><?php echo $this->options['mail_message']; ?></textarea>
             <br />
-            <small><?php _e('Use HTML only. As a easier way, you may use the following tags: <strong>[pc_author]</strong> for parent comment author, <strong>[pc_date]</strong> for parent comment date, <strong>[pc_content]</strong> for parent comment content, <strong>[cc_author]</strong> for child comment author, <strong>[cc_date]</strong> for child comment date, <strong>[cc_url]</strong> for child comment author url, <strong>[cc_content]</strong> for child comment content, <strong>[commentlink]</strong> for parent comment link, <strong>[blogname]</strong> for blog name, <strong>[blogurl]</strong> for blog url and <strong>[postname]</strong> for post name.','comment-reply-notification'); ?></small>
+            <p><?php _e('Use HTML only. As a easier way, you may use the following tags: <strong>[pc_author]</strong> for parent comment author, <strong>[pc_date]</strong> for parent comment date, <strong>[pc_content]</strong> for parent comment content, <strong>[cc_author]</strong> for child comment author, <strong>[cc_date]</strong> for child comment date, <strong>[cc_url]</strong> for child comment author url, <strong>[cc_content]</strong> for child comment content, <strong>[commentlink]</strong> for parent comment link, <strong>[blogname]</strong> for blog name, <strong>[blogurl]</strong> for blog url and <strong>[postname]</strong> for post name.','comment-reply-notification'); ?></p>
         </p>
         <div class="clearing"></div>
         <p>
@@ -342,7 +342,7 @@ class comment_reply_notification{
             <label><?php _e('Delete options after deactivate:','comment-reply-notification'); ?></label>
             <input type="checkbox" name="clean_option" id="clean_option" value="yes" <?php if ($this->options['clean_option'] === 'yes') { ?> checked="checked"<?php } ?>/>
             <br />
-            <small><?php _e('check box if you want to delete all of options of Comment Reply Notification after deactivate this plugin','comment-reply-notification'); ?></small>
+            <p><?php _e('check box if you want to delete all of options of Comment Reply Notification after deactivate this plugin','comment-reply-notification'); ?></p>
         </p>
         <div class="clearing"></div>
         <p class="submit">
