@@ -4,7 +4,7 @@ Tags: Comment, reply, email, notification
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8490579
 Requires at least: 2.7
 Tested up to: 3.9.1
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 
 When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. 
 
