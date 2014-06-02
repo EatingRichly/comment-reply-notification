@@ -2,9 +2,9 @@
 /* 
 Plugin Name: Comment Reply Notification
 Plugin URI: https://github.com/wormeyman/comment-reply-notification
-Version: 1.5.1
-Author: Eric j.
-Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. 评论回复通知插件, 当评论被回复时会email通知评论的作者.
+Version: 1.5.2
+Author: Eric J.
+Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired.
 Author URI: https://twitter.com/wormeyman/
 Donate link: http://wormeyman.com
 GitHub Plugin URI: https://github.com/wormeyman/comment-reply-notification
@@ -363,7 +363,7 @@ $new_comment_reply_notification = new comment_reply_notification();
 /**
  *  Add settings link on plugin page
  */
-function plugin_settings_link($links) { 
+function crn_plugin_settings_link($links) { 
   $settings_link = '<a href="options-general.php?page=comment-reply-notification-master/comment-reply-notification.php">Settings</a>'; 
   array_unshift($links, $settings_link); 
   return $links; 
@@ -371,5 +371,5 @@ function plugin_settings_link($links) {
  
 $plugin = plugin_basename(__FILE__); 
 
-add_filter("plugin_action_links_$plugin", 'plugin_settings_link' );
+add_filter("plugin_action_links_$plugin", 'crn_plugin_settings_link' );
 ?>
