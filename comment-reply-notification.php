@@ -1,6 +1,6 @@
 <?php
 /* 
-Plugin Name: Comment Reply Notification
+Plugin Name: Comment Reply Notification Updated
 Plugin URI: https://github.com/wormeyman/comment-reply-notification
 Version: 1.5.5
 Author: Eric J.
@@ -13,7 +13,7 @@ GitHub Branch: master
 
 if(!class_exists('comment_reply_notification')):
 class comment_reply_notification{
-    var $version = '1.0.0.001';
+    var $version = '1.5.5';
     var $status = '';
     var $message = '';
     var $options = array();
@@ -34,7 +34,7 @@ class comment_reply_notification{
         }elseif($key === 'mail_subject'){
             return __('Your comment at [[blogname]] has a new reply','comment-reply-notification');
         }elseif($key === 'mail_message'){
-            return __("<p><strong>[blogname]</strong>: Your comment on the post <strong>[postname]</strong> has a new reply</p>\n<p>Here is your original comment:<br />\n[pc_content]</p>\n<p>Here is the new reply:<br />\n[cc_content]</p>\n<p>You can see more information for the comment on this post here:<br />\n<a href=\"[commentlink]\">[commentlink]</a></p>\n<p><strong>Thank you for your commenting on <a href=\"[blogurl]\">[blogname]</a></strong> -- Powered by <a href=\"http://fairyfish.net/2008/11/03/comment-reply-notification/\">Comment Reply Notification</a></p>\n<p><strong>This email was sent automatically. Please don't reply to this email.</strong></p>",'comment-reply-notification');
+            return __("<p><strong>[blogname]</strong>: Your comment on the post <strong>[postname]</strong> has a new reply</p>\n<p>Here is your original comment:<br />\n[pc_content]</p>\n<p>Here is the new reply:<br />\n[cc_content]</p>\n<p>You can see more information for the comment on this post here:<br />\n<a href=\"[commentlink]\">[commentlink]</a></p>\n<p><strong>Thank you for your commenting on <a href=\"[blogurl]\">[blogname]</a></strong> -- </p>\n<p><strong>This email was sent automatically. Please don't reply to this email.</strong></p>",'comment-reply-notification');
         }elseif($key === 'clean_option'){
             return 'no';
         }elseif($key === 'dn_hide_note'){
@@ -354,8 +354,8 @@ class comment_reply_notification{
     
 </div>
 <?php
-	}
-}
+	}  //End options_page()
+}      //End class comment_reply_notification
 endif;
 
 $new_comment_reply_notification = new comment_reply_notification();
