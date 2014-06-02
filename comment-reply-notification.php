@@ -297,7 +297,7 @@ class comment_reply_notification{
 ?>
 
 <div class="wrap">
-    <style scoped="true" type="text/css">
+    <style scoped="false" type="text/css">
         div.clearing{border-top:1px solid #2580B2 !important;clear:both;}
     </style>
 
@@ -331,7 +331,7 @@ class comment_reply_notification{
         <div>
             <strong><?php _e('Edit Notification Message','comment-reply-notification'); ?></strong>
             <br /><br />
-            <textarea style="font-size: 90%" name="mail_message" id="mail_message" cols="100%" rows="10" ><?php echo $this->options['mail_message']; ?></textarea>
+            <textarea style="font-size: 90%" name="mail_message" id="mail_message" cols="100" rows="10" ><?php echo $this->options['mail_message']; ?></textarea>
             <br />
             <p><?php _e('Use HTML only. As a easier way, you may use the following tags: <strong>[pc_author]</strong> for parent comment author, <strong>[pc_date]</strong> for parent comment date, <strong>[pc_content]</strong> for parent comment content, <strong>[cc_author]</strong> for child comment author, <strong>[cc_date]</strong> for child comment date, <strong>[cc_url]</strong> for child comment author url, <strong>[cc_content]</strong> for child comment content, <strong>[commentlink]</strong> for parent comment link, <strong>[blogname]</strong> for blog name, <strong>[blogurl]</strong> for blog url and <strong>[postname]</strong> for post name.','comment-reply-notification'); ?></p>
         </div>
