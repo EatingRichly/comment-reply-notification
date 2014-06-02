@@ -353,7 +353,3 @@ class comment_reply_notification{
     </form>
     
 </div>
-
-<?php
-        $new_comment_reply_notification = new comment_reply_notification();
-?>
