@@ -1,12 +1,14 @@
 <?php
 /* 
 Plugin Name: Comment Reply Notification
-Plugin URI: http://theme10.com/comment-reply-notification/
-Version: 1.4
-Author: denishua
+Plugin URI: https://github.com/wormeyman/comment-reply-notification
+Version: 1.5
+Author: Eric j.
 Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired. 评论回复通知插件, 当评论被回复时会email通知评论的作者.
-Author URI: http://fairyfish.net/
-Donate link: http://fairyfish.net/donate/
+Author URI: https://twitter.com/wormeyman/
+Donate link: http://wormeyman.com
+GitHub Plugin URI: https://github.com/wormeyman/comment-reply-notification
+GitHub Branch: master
 */
 
 if(!class_exists('comment_reply_notification')):
@@ -344,59 +346,14 @@ class comment_reply_notification{
 		</p>
 		<div class="clearing"></div>
 		<p class="submit">
-			<input type="submit" name="updateoptions" value="<?php _e('Update Options','comment-reply-notification'); ?> &raquo;" />
-			<input type="submit" name="reset_options" onclick="return confirm('<?php _e('Do you really want to reset your current configuration?','comment-reply-notification'); ?>');" value="<?php _e('Reset Options','comment-reply-notification'); ?>" />
+			<input type="submit" class="button-primary" name="updateoptions" value="<?php _e('Update Options','comment-reply-notification'); ?> &raquo;" />
+			<input type="submit" class="button" name="reset_options" onclick="return confirm('<?php _e('Do you really want to reset your current configuration?','comment-reply-notification'); ?>');" value="<?php _e('Reset Options','comment-reply-notification'); ?>" />
 		</p>
 		</fieldset>
 	</form>
 	
-	<div>
-		<div style="float:left; font-size:16px; height:30px; line-height:30px;"> Do you like this Plugin?	 Consider to </div>
-		<div style="float:left; padding:0 0 0 4px">
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="8490579">
-			<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
-			<img alt="" border="0" src="https://www.paypal.com/zh_XC/i/scr/pixel.gif" width="1" height="1">
-		</form>
-		</div>
-	</div>
   </div>
-</div>
+
 <?php
-	}
-}
-endif;
-
-if(!function_exists('wpjam_modify_dashboard_widgets')){
-	
-	add_action('wp_dashboard_setup', 'wpjam_modify_dashboard_widgets' );
-	function wpjam_modify_dashboard_widgets() {
-		global $wp_meta_boxes;
-		if( strpos(WPLANG, 'zh_') === false){
-			wp_add_dashboard_widget('wpjam_dashboard_widget', 'Theme10', 'wpjam_dashboard_widget_function');
-		}else{
-			wp_add_dashboard_widget('wpjam_dashboard_widget', '我爱水煮鱼', 'wpjam_dashboard_widget_function');
-		}
-	}
-	
-	function wpjam_dashboard_widget_function() {
-		if( strpos(WPLANG, 'zh_') === false){
-			echo '<div class="rss-widget">';
-			wp_widget_rss_output('http://theme10.com/feed/', array( 'show_author' => 0, 'show_date' => 1, 'show_summary' => 0 ));
-			echo "</div>";
-		}else{
-		?>
-		<p><a href="http://wpjam.com/&amp;utm_medium=wp-plugin&amp;utm_campaign=wp-plugin&amp;utm_source=<?php bloginfo('home');?>" title="WordPress JAM" target="_blank"><img src="http://wpjam.com/wp-content/themes/WPJ-Parent/images/logo_index_1.png" alt="WordPress JAM"></a><br />
-        <a href="http://wpjam.com/&amp;utm_medium=wp-plugin&amp;utm_campaign=wp-plugin&amp;utm_source=<?php bloginfo('home');?>" title="WordPress JAM" target="_blank"> WordPress JAM</a> 是中国最好的 WordPress 二次开发团队，我们精通 WordPress，可以制作 WordPress 主题，开发 WordPress 插件，WordPress 整站优化。</p>
-        <hr />
-	<?php 
-		echo '<div class="rss-widget">';
-		wp_widget_rss_output('http://fairyfish.net/feed/', array( 'show_author' => 0, 'show_date' => 1, 'show_summary' => 0 ));
-		echo "</div>";
-		}
-	}
-}
-
-$new_comment_reply_notification = new comment_reply_notification();
+        $new_comment_reply_notification = new comment_reply_notification();
 ?>
