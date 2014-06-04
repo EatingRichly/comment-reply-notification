@@ -2,7 +2,7 @@
 /* 
 Plugin Name: Comment Reply Notification Updated
 Plugin URI: https://github.com/wormeyman/comment-reply-notification
-Version: 1.5.5
+Version: 1.5.6
 Author: Eric J.
 Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired.
 Author URI: https://twitter.com/wormeyman/
@@ -10,6 +10,8 @@ Donate link: http://wormeyman.com
 GitHub Plugin URI: https://github.com/wormeyman/comment-reply-notification
 GitHub Branch: master
 */
+
+if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if(!class_exists('comment_reply_notification')):
 class comment_reply_notification{
