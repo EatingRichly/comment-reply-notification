@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
 Plugin Name: Comment Reply Notification Updated
 Plugin URI: https://github.com/wormeyman/comment-reply-notification
 Version: 1.5.6
@@ -109,13 +109,13 @@ class comment_reply_notification{
 
         return $id;
     }
-    
+
     function email($id){
-        
+
         global $wpdb;
-        
+
         if((int) mysql_escape_string($_POST['comment_parent']) === 0 || (int) mysql_escape_string($_POST['comment_post_ID']) === 0){
-            $sendemail = 0;            
+            $sendemail = 0;
             if (isset($_POST['action']) && $_POST['action'] == 'replyto-comment' && isset($_POST['comment_ID'])) {
                 $id_parent = $_POST['comment_ID'];
                 if($this->options['mail_notify'] === 'parent_check'){
@@ -134,13 +134,13 @@ class comment_reply_notification{
             $comment_parent = mysql_escape_string($_POST['comment_parent']);
             $comment_post = mysql_escape_string($_POST['comment_post_ID']);
         }
-        
+
         if($this->options['mail_notify'] != 'none'){
             $this->mailer($id,$comment_parent,$comment_post);
         }
         return $id;
     }
-        
+
     function add_mail_reply($id){
         global $wpdb;
 
@@ -173,7 +173,7 @@ class comment_reply_notification{
                 return false;
             }
         }
-        
+
         //$parent_email = trim($wpdb->get_var("SELECT comment_author_email FROM {$wpdb->comments} WHERE comment_ID='$parent_id'"));
         $pc = get_comment($parent_id);
         if(empty($pc)){
@@ -205,7 +205,7 @@ class comment_reply_notification{
             return false;
         }
 
-        if($parent_email === trim($cc->comment_author_email)){ //如果自己回复自己的评论就不发送邮件
+        if($parent_email === trim($cc->comment_author_email)){ // If they do not send a reply e-mail their comments
             unset($pc,$cc);
             return false;
         }
@@ -218,7 +218,7 @@ class comment_reply_notification{
         $mail_message = str_replace('[pc_date]', mysql2date( get_option('date_format'), $pc->comment_date), $mail_message);
         $mail_message = str_replace('[pc_content]', $pc->comment_content, $mail_message);
         $mail_message = str_replace('[pc_author]', $pc->comment_author, $mail_message);
-        
+
         $mail_message = str_replace('[cc_author]', $cc->comment_author, $mail_message);
         $mail_message = str_replace('[cc_date]', mysql2date( get_option('date_format'), $cc->comment_date), $mail_message);
         $mail_message = str_replace('[cc_url]', $cc->comment_url, $mail_message);
@@ -240,7 +240,7 @@ class comment_reply_notification{
         $mail_headers = "$from\nContent-Type: text/html; charset=" . get_option('blog_charset') . "\n";
 
         unset($wp_email, $from, $post, $pc, $cc, $cap, $permalink);
-        
+
         $mail_message = convert_smilies($mail_message);
 
         $mail_message = apply_filters('comment_notification_text', $mail_message, $id);
@@ -249,7 +249,7 @@ class comment_reply_notification{
 
         wp_mail($parent_email, $mail_subject, $mail_message, $mail_headers);
         unset($mail_subject,$parent_email,$mail_message, $mail_headers);
-        
+
         return true;
     }
 
@@ -273,7 +273,7 @@ class comment_reply_notification{
             <div id="message" class="<?php echo ($status != '') ? $status :'updated '; ?> fade">
                 <p><strong><?php echo $message; ?></strong></p>
             </div>
-<?php    
+<?php
         }
         unset($message,$status);
     }
@@ -353,10 +353,10 @@ class comment_reply_notification{
         </p>
         </fieldset>
     </form>
-    
+
 </div>
 <?php
-	}  //End options_page()
+    }  //End options_page()
 }      //End class comment_reply_notification
 endif;
 
@@ -365,13 +365,13 @@ $new_comment_reply_notification = new comment_reply_notification();
 /**
  *  Add settings link on plugin page
  */
-function crn_plugin_settings_link($links) { 
-  $settings_link = '<a href="options-general.php?page=comment-reply-notification/comment-reply-notification.php">Settings</a>'; 
-  array_unshift($links, $settings_link); 
-  return $links; 
+function crn_plugin_settings_link($links) {
+  $settings_link = '<a href="options-general.php?page=comment-reply-notification/comment-reply-notification.php">Settings</a>';
+  array_unshift($links, $settings_link);
+  return $links;
 }
- 
-$plugin = plugin_basename(__FILE__); 
+
+$plugin = plugin_basename(__FILE__);
 
 add_filter("plugin_action_links_$plugin", 'crn_plugin_settings_link' );
 ?>
