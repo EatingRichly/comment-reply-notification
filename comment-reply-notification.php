@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: Comment Reply Notification Updated
-Plugin URI: https://github.com/wormeyman/comment-reply-notification
-Version: 1.5.6
+Plugin URI: https://github.com/EatingRichly/comment-reply-notification
+Version: 1.6.0
 Author: Eric J.
 Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired.
-Author URI: https://twitter.com/wormeyman/
-Donate link: http://wormeyman.com
-GitHub Plugin URI: https://github.com/wormeyman/comment-reply-notification
+Author URI: http://eatingrichly.com/about/#Eric
+Donate link: http://eatingrichly.com
+GitHub Plugin URI: https://github.com/EatingRichly/comment-reply-notification
 GitHub Branch: master
 */
 
