@@ -2,7 +2,7 @@
 /*
 Plugin Name: Comment Reply Notification Updated
 Plugin URI: https://github.com/EatingRichly/comment-reply-notification
-Version: 1.6.0
+Version: 1.6.1
 Author: Eric J.
 Description: When a reply is made to a comment the user has left on the blog, an e-mail shall be sent to the user to notify him of the reply. This will allow the users to follow up the comment and expand the conversation if desired.
 Author URI: http://eatingrichly.com/about/#Eric
