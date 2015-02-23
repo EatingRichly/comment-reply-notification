@@ -279,7 +279,7 @@ class comment_reply_notification{
     }
 
     function wpadmin(){
-        add_options_page(__('Comment Reply Notification Option','comment-reply-notification'), __('Comment Reply Notification','comment-reply-notification'), 5, __FILE__, array(&$this,'options_page'));
+        add_options_page(__('Comment Reply Notification Option','comment-reply-notification'), __('Comment Reply Notification','comment-reply-notification'), 'manage_options', __FILE__, array(&$this,'options_page'));
     }
 
     function options_page(){
